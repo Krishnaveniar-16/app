@@ -27,3 +27,5 @@ jobs:
           app-name: 'fullstack-app1603' 
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: .
+
+
