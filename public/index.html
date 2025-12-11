@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azure Full Stack Demo</title>
+</head>
+<body>
+  <h1>🌐 Azure Full Stack Demo</h1>
+  <p id="msg">Loading message from backend...</p>
+  <p id="status"></p>
+
+  <script>
+    fetch('/api/message')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('msg').textContent = data.message;
+        document.getElementById('status').textContent = data.backendStatus;
+      })
+      .catch(() => {
+        document.getElementById('msg').textContent = '⚠️ Failed to reach backend.';
+        document.getElementById('status').textContent = '';
+      });
+  </script>
+</body>
+</html>
